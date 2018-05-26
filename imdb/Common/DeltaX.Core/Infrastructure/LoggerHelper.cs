@@ -12,5 +12,12 @@ namespace DeltaX.Core.Infrastructure
             return new LoggerConfiguration().
                     WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day);
         }
+        public static class ApiLogger
+        {
+            public static ILogger Write()
+            {
+                return Log.Logger;
+            }
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DeltaX.DataAccess.Implementation
 {
@@ -20,11 +21,11 @@ namespace DeltaX.DataAccess.Implementation
             this.dbSet = context.Set<TEntity>();
         }
 
-        public virtual IEnumerable<TEntity> GetAll()
+        public virtual async Task<IEnumerable<TEntity>> GetAll()
         {
             try
             {
-                return dbSet.ToList();
+                return await dbSet.ToListAsync();
             }
             catch (Exception ex)
             {
@@ -69,11 +70,11 @@ namespace DeltaX.DataAccess.Implementation
             }
         }
 
-        public virtual TEntity GetByID(IdType id)
+        public virtual async Task<TEntity> GetByID(IdType id)
         {
             try
             {
-                return dbSet.Find(id);
+                return await dbSet.FindAsync(id);
             }
             catch (Exception ex)
             {
@@ -81,11 +82,11 @@ namespace DeltaX.DataAccess.Implementation
             }
         }
 
-        public virtual void Insert(TEntity entity)
+        public virtual async Task Insert(TEntity entity)
         {
             try
             {
-                dbSet.Add(entity);
+                await dbSet.AddAsync(entity);
             }
             catch (Exception ex)
             {
@@ -128,28 +129,11 @@ namespace DeltaX.DataAccess.Implementation
             }
             dbSet.Remove(entityToDelete);
         }
-
-        public virtual void InsertOrUpdate(TEntity entityToUpdate)
-        {
-            try
-            {
-
-                // dbSet.Attach(entityToUpdate);
-                context.Entry(entityToUpdate).State = EntityState.Modified;
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
+    
         public virtual TEntity InsertAndReturnEntity(TEntity entityToUpdate)
         {
             try
             {
-                // dbSet.Attach(entityToUpdate);
                 context.Entry(entityToUpdate).State = EntityState.Added;
                 return entityToUpdate;
             }
@@ -163,7 +147,6 @@ namespace DeltaX.DataAccess.Implementation
             try
             {
                 context.Entry(entityToUpdate).State = EntityState.Modified;
-                //  dbSet.Attach(entityToUpdate);
 
                 return dbSet.Find(entityToUpdate.Id);
             }
@@ -172,5 +155,6 @@ namespace DeltaX.DataAccess.Implementation
                 throw;
             }
         }
+        
     }
 }

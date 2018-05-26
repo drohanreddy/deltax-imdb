@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DeltaX.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,21 +12,14 @@ namespace DetlaX.API.Controllers
     public class HomeController : BaseController
     {
         ILogger _logger;
-        public HomeController(ILogger<HomeController> logger) : base(logger)
+        IActorService _actorService;
+        public HomeController(ILogger<HomeController> logger,
+            IActorService actorService) : base(logger)
         {
             _logger = logger;
+            _actorService = actorService;
         }
 
-        [Route("")]
-        public string TestMethod()
-        {
-            var st = Execute(this, t => t.GetString());
-            return st;
-        }
-
-        private string GetString()
-        {
-            return "Hello";
-        }
+       
     }
 }

@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Common\DeltaX.Core\DeltaX.Core.csproj" />
     <ProjectReference Include="..\..\Library\DeltaX.DataAccess\DeltaX.DataAccess.csproj" />
+    <ProjectReference Include="..\..\Library\DeltaX.Services\DeltaX.Services.csproj" />
   </ItemGroup>
 
 </Project>

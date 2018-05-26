@@ -12,5 +12,10 @@ namespace DeltaX.DataAccess.Implementation.Repo
         {
 
         }
+
+        public void InserTestActor()
+        {
+           
+        }
     }
 }

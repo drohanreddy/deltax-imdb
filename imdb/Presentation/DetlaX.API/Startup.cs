@@ -29,8 +29,9 @@ namespace DetlaX.API
         {
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
             services.AddMvc();
-            services.AddDbContext<DXContext>(options => options.UseSqlServer(""));
+            services.AddDbContext<DXContext>(options => options.UseSqlServer(@"data source=.\SQLExpress;initial catalog=DeltaX;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"));
             services.AddRepos();
+            services.AddServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

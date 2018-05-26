@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeltaX.DataAccess", "Librar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DetlaX.API", "Presentation\DetlaX.API\DetlaX.API.csproj", "{A884CC34-5ADA-485B-902F-75231199C6D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaX.Services", "Library\DeltaX.Services\DeltaX.Services.csproj", "{0C893DD8-B7EB-409F-A733-D858ACCE8767}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A884CC34-5ADA-485B-902F-75231199C6D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A884CC34-5ADA-485B-902F-75231199C6D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A884CC34-5ADA-485B-902F-75231199C6D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C893DD8-B7EB-409F-A733-D858ACCE8767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C893DD8-B7EB-409F-A733-D858ACCE8767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C893DD8-B7EB-409F-A733-D858ACCE8767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C893DD8-B7EB-409F-A733-D858ACCE8767}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{FCA88603-5A54-480F-98C5-5552ED1404C8} = {507EE201-F44B-4CA4-8D77-3347E37412C7}
 		{C49AA5E3-AFF7-4714-9159-7FB3DEC64C91} = {2468C4D8-7769-44E5-AFEC-06ED6FC42C91}
 		{A884CC34-5ADA-485B-902F-75231199C6D9} = {C4DB72DF-5DAE-47A4-80A7-AB08918DF8A7}
+		{0C893DD8-B7EB-409F-A733-D858ACCE8767} = {2468C4D8-7769-44E5-AFEC-06ED6FC42C91}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {593143E2-3196-4077-94A7-0281F9847503}

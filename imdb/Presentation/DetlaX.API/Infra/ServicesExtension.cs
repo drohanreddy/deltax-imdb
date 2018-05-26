@@ -1,5 +1,7 @@
 ﻿using DeltaX.DataAccess.Implementation;
 using DeltaX.DataAccess.Interfaces;
+using DeltaX.Services.Implementation;
+using DeltaX.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -12,7 +14,12 @@ namespace DetlaX.API.Infra
     {
         public static void AddRepos(this IServiceCollection services)
         {
-            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+        }
+
+        public static void AddServices(this IServiceCollection services)
+        {
+            services.AddScoped<IActorService, ActorService>();
         }
     }
 }
