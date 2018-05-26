@@ -3,3 +3,6 @@
 ################################################################################
 
 /imdb/.vs/Deltax/v15/Server/sqlite3
+/imdb/Common/DeltaX.Core/obj
+/imdb/Library/DeltaX.DataAccess/obj/Debug/netcoreapp2.0
+/imdb/Library/DeltaX.DataAccess/obj

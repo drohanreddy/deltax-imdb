@@ -1,0 +1,10 @@
+USE DeltaX;
+
+CREATE TABLE Movie (
+	Id INT IDENTITY(1, 1) PRIMARY KEY
+	,[Name] NVARCHAR(100) NOT NULL
+	,YearOfRelease DATE NOT NULL
+	,Plot VARCHAR(5000)
+	,PosterFileName VARCHAR(100)
+	,Producer INT FOREIGN KEY REFERENCES Deltax.dbo.Producer(Id)
+	);
