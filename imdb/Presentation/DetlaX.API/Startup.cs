@@ -13,23 +13,39 @@ using DetlaX.API.Infra;
 using DeltaX.Core.Infrastructure;
 using Serilog;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace DetlaX.API
 {
     public class Startup
     {
         private readonly ILoggerFactory loggerFactory;
+
+        public IConfiguration Configuration { get; }
+
         public Startup(IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            #region  logger
             this.loggerFactory = loggerFactory;
             var config = new LoggerHelper().GetLoggerConfig();
             Log.Logger = config.CreateLogger();
+            #endregion
+
+
+            #region config  
+            var builder = new ConfigurationBuilder()
+           .SetBasePath(Directory.GetCurrentDirectory())
+           .AddJsonFile("appsettings.json");
+            Configuration = builder.Build();
+            #endregion
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = Configuration.GetConnectionString("localDB");
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
             services.AddMvc();
-            services.AddDbContext<DXContext>(options => options.UseSqlServer(@"data source=.\SQLExpress;initial catalog=DeltaX;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"));
+            services.AddDbContext<DXContext>(options => options.UseSqlServer("connectionString"));
             services.AddRepos();
             services.AddServices();
         }
