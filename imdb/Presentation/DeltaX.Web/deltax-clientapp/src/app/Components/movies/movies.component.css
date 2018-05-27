@@ -1,0 +1,15 @@
+.cardimg{
+    width: 200px;
+    vertical-align: top;
+}
+.card{
+    display: inline-block;
+    width: 100%;
+    margin: 1.25rem;
+}
+.card-body{
+    display: inline-block;
+}
+.cardimg{
+    padding: 1.25rem;
+}

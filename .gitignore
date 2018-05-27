@@ -16,3 +16,6 @@
 /imdb/Library/DeltaX.Services/obj/Debug/netcoreapp2.0
 /imdb/Library/DeltaX.Services/obj
 /imdb/Presentation/DeltaX.Web/node_modules
+/imdb/.vs/Deltax/DesignTimeBuild/.dtbcache
+/imdb/Presentation/DeltaX.Web/deltax-clientapp/src/assets/images
+/imdb/Presentation/DeltaX.Web/dist

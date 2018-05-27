@@ -45,7 +45,7 @@ namespace DetlaX.API
             var connectionString = Configuration.GetConnectionString("localDB");
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
             services.AddMvc();
-            services.AddDbContext<DXContext>(options => options.UseSqlServer("connectionString"));
+            services.AddDbContext<DXContext>(options => options.UseSqlServer(connectionString));
             services.AddRepos();
             services.AddServices();
         }

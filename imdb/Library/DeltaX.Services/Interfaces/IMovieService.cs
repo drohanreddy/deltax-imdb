@@ -1,13 +1,12 @@
 ﻿using DeltaX.Core.POCO;
-using DeltaX.DataAccess.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DeltaX.DataAccess.Interfaces.Repo
+namespace DeltaX.Services.Interfaces
 {
-    public interface IMovieRepo : IRepository<Movie, int>
+    public interface IMovieService
     {
         Task<List<AllMoviesData>> GetAllMoviesData();
     }

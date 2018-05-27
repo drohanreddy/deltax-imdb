@@ -4,6 +4,7 @@ namespace DeltaX.DataAccess
     using Microsoft.EntityFrameworkCore;
     using System.Linq;
     using DeltaX.DataAccess.Entities;
+    using DeltaX.Core.POCO;
 
     public partial class DXContext : DbContext
     {
@@ -16,5 +17,6 @@ namespace DeltaX.DataAccess
         public virtual DbSet<Movie> Movies { get; set; }
         public virtual DbSet<MovieActor> MovieActors { get; set; }
         public virtual DbSet<Producer> Producers { get; set; }
+        public virtual DbSet<AllMoviesData> AllMoviesData { get; set; }
     }
 }
