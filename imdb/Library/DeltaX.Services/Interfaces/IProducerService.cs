@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace DeltaX.Services.Interfaces
 {
-    public interface IActorService
+    public interface IProducerService
     {
-        Task InsertTestActor();
-        Task<List<ActorMini>> GetAllActors();
+        Task<List<ProducerPoco>> GetAllProducers();
     }
 }

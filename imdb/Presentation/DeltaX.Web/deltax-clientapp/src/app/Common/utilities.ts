@@ -1,8 +1,8 @@
 export class Utilities {    
     isNullOrEmpty(val){
-        return val == null || val.length
+        return !(val !== null && val !== undefined)
     }
     isValidArray(arr){
-        return arr !== null && arr !== undefined && arr.length
+        return arr !== null && arr !== undefined 
     }
 }

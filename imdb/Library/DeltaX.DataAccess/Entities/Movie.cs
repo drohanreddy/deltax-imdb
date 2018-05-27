@@ -24,7 +24,5 @@ namespace DeltaX.DataAccess.Entities
         public string PosterFileName { get; set; }
 
         public int? Producer { get; set; }
-
-        public virtual Producer Producer1 { get; set; }
     }
 }

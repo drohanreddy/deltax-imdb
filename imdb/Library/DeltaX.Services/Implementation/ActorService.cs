@@ -1,4 +1,5 @@
-﻿using DeltaX.DataAccess.Entities;
+﻿using DeltaX.Core.POCO;
+using DeltaX.DataAccess.Entities;
 using DeltaX.DataAccess.Interfaces;
 using DeltaX.DataAccess.Interfaces.Repo;
 using DeltaX.Services.Interfaces;
@@ -30,6 +31,11 @@ namespace DeltaX.Services.Implementation
             };
             await _actorRepo.Insert(actor);
             await _unitOfWork.Save();
+        }
+
+        public async Task<List<ActorMini>> GetAllActors()
+        {
+            return await _actorRepo.GetAllActorsMini();
         }
     }
 }

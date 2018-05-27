@@ -20,6 +20,7 @@ namespace DetlaX.API.Infra
         public static void AddServices(this IServiceCollection services)
         {
             services.AddScoped<IActorService, ActorService>();
+            services.AddScoped<IProducerService, ProducerService>();
             services.AddScoped<IMovieService, MovieService>();
         }
     }

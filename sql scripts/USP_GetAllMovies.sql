@@ -4,7 +4,7 @@ CREATE PROCEDURE usp_GetAllMovieData
 AS
 BEGIN
 	SELECT M.Id AS MovieID
-		,M.Name AS MovieName
+		,M.Name AS MovieName, M.Plot as Plot
 		,YEAR(M.YearOfRelease) AS YearOfRelease
 		,M.PosterFileName AS MoviePoster
 		,P.Id AS ProducerID

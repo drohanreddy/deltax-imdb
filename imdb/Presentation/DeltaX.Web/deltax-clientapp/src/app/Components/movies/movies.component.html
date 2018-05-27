@@ -1,32 +1,65 @@
 <div class="container cards-list">
-        <div class="card">
-
-                <!--Card image-->
-                <img class="img-fluid cardimg" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg" alt="Card image cap">
-            
-                <!--Card content-->
+        <div class="card" *ngFor="let movie of allMovies">
+                <img class="img-fluid cardimg" src="assets\images\movies\{{movie.moviePoster}}" alt="{{movie.movieName}}">
                 <div class="card-body">
-                    <!--Title-->
-                    <h4 class="card-title">Card title</h4>
-                    <!--Text-->
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary waves-light" mdbWavesEffect>Button</a>
-                </div>    
-        </div>
-        <div class="card">
-
-                <!--Card image-->
-                <img class="img-fluid cardimg" src="assets\images\movies\avengers.jpg" alt="Card image cap">
-            
-                <!--Card content-->
-                <div class="card-body">
-                    <!--Title-->
-                    <h4 class="card-title">Card title</h4>
-                    <!--Text-->
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary waves-light" mdbWavesEffect>Button</a>
-                </div>    
+                        <h4 class="card-title">{{movie.movieName}}</h4>
+                        <span class="movieEdit" (click)="editModal(movie.movieID)">
+                                <i class="fa fa-edit"></i>
+                        </span>
+                        <p class="card-text">{{movie.plot}}</p>
+                        <span>Producer:
+                                <a routerLink="producer/{{movie.producerID}}">{{movie.producerName}}</a>
+                        </span>
+                        <ul class="card-actors">
+                                <li>Actors:</li>
+                                <li class="actor" *ngFor="let actor of movie.actors, let i = index">
+                                        <a routerLink="actor/{{actor.actorID}}">{{actor.actorName}}{{i!=movie.actors.length-1?",":""}}</a>
+                                </li>
+                        </ul>
+                </div>
         </div>
 </div>
 
-             
+<div mdbModal #addEditModal="mdb-modal" class="modal fade">
+        <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                                <h4 class="modal-title w-100" id="myModalLabel">Edit</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+                                        <span aria-hidden="true">×</span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+                                <form [formGroup]="movieForm">
+                                        <p class="h5 text-center mb-4">Edit the movie {{movieInEdit.movieName}}</p>
+                                        <div class="md-form">
+                                                <input type="text" id="movieFormName" formControlName="movieName" class="form-control" mdbInputDirective [mdbValidate]="false" [ngClass]="(this.movieForm.controls['movieName'].touched && !this.movieForm.controls['movieName'].valid)?'invalid':''">
+                                                <label for="movieFormName">Movie Name</label>
+                                                <span class="formError" *ngIf="(this.movieForm.controls['movieName'].touched && !this.movieForm.controls['movieName'].valid)">Invalid Value: Name should be atleast 2 characters</span>
+                                        </div>
+                                        <div class="md-form">
+                                                <textarea type="text" id="movieFormPlot" formControlName="plot" class="md-textarea" style="height: 100px;width:100%" mdbInputDirective [mdbValidate]="false"[ngClass]="(this.movieForm.controls['plot'].touched && !this.movieForm.controls['plot'].valid)?'invalid':''"></textarea>
+                                                <label for="movieFormPlot">Movie Plot</label>
+                                                <span class="formError" *ngIf="(this.movieForm.controls['plot'].touched && !this.movieForm.controls['plot'].valid)">Invalid Value: Movie Plot should be atleast 100 characters</span>
+                                        </div>
+                                        <div class="md-form">
+                                                <angular2-multiselect [data]="actorsList" [(ngModel)]="selectedActors" formControlName="actors"></angular2-multiselect>
+                                                <span class="addActorLabel">Add Missing Actor <i class="fa fa-plus"></i></span>
+                                        </div>  
+                                        <div class="md-form">
+                                                <angular2-multiselect [data]="producerList" [(ngModel)]="selectedProducers" [settings]="producerDropDown" formControlName="producers"></angular2-multiselect>
+                                                <span class="addProducerLabel">Add Missing Producer <i class="fa fa-plus"></i></span>
+                                        <span class="formError" *ngIf="(this.selectedProducers === null || this.selectedProducers.length === 0)">Choose a producer</span>
+                                        </div>  
+                                        <div class="md-form">
+                                                <input class="form-control" type="file" name="movieImage" accept="image/*" id="movieImage" formControlName="image" (change)="fileEvent($event)">
+                                        </div>
+                                </form>
+                        </div>
+                        <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-lg waves-light" data-dismiss="modal" (click)="closeModal()" mdbWavesEffect>Close</button>
+                                <button type="button" class="btn btn-primary btn-lg waves-light"  type="submit" [disabled]="!movieForm.valid" (click)="saveData(movieForm.value)" mdbWavesEffect>Save changes</button>
+                        </div>
+                </div>
+        </div>
+</div>

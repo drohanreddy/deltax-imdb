@@ -13,5 +13,6 @@ namespace DeltaX.DataAccess.Interfaces
         IMovieActorRepo GetMovieActorRepo();
         IProducerRepo GetProducerRepo();
         Task Save();
+        DXContext getDXContext();
     }
 }

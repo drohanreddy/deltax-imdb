@@ -23,6 +23,10 @@ namespace DeltaX.DataAccess.Implementation
             _dXContext = dXContext;
         }
 
+        public DXContext getDXContext(){
+            return _dXContext;
+        }
+
         public IActorRepo GetActorRepo()
         {
             if (_actorRepo == null)

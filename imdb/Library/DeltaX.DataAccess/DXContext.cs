@@ -17,6 +17,15 @@ namespace DeltaX.DataAccess
         public virtual DbSet<Movie> Movies { get; set; }
         public virtual DbSet<MovieActor> MovieActors { get; set; }
         public virtual DbSet<Producer> Producers { get; set; }
+        public virtual DbSet<ProducerPoco> ProducersMini { get; set; }        
         public virtual DbSet<AllMoviesData> AllMoviesData { get; set; }
+        public virtual DbSet<ActorMini> ActorMini { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+        }
     }
+    
+    
 }

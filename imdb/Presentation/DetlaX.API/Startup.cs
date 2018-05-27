@@ -57,6 +57,7 @@ namespace DetlaX.API
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors(policybuilder => policybuilder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
             app.UseMvc();
         }
     }

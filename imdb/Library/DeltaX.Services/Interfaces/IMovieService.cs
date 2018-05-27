@@ -9,5 +9,6 @@ namespace DeltaX.Services.Interfaces
     public interface IMovieService
     {
         Task<List<AllMoviesData>> GetAllMoviesData();
+        Task<bool> SaveMoviesData(SaveMoviesData saveMoviesData, string fileName);
     }
 }
