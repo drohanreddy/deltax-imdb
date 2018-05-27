@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DetlaX.API", "Presentation\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaX.Services", "Library\DeltaX.Services\DeltaX.Services.csproj", "{0C893DD8-B7EB-409F-A733-D858ACCE8767}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "DeltaX.Web", "Presentation\DeltaX.Web\DeltaX.Web.njsproj", "{F00BDEC6-98E3-4E7E-A4DF-9A28C354AE2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0C893DD8-B7EB-409F-A733-D858ACCE8767}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C893DD8-B7EB-409F-A733-D858ACCE8767}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C893DD8-B7EB-409F-A733-D858ACCE8767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F00BDEC6-98E3-4E7E-A4DF-9A28C354AE2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F00BDEC6-98E3-4E7E-A4DF-9A28C354AE2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F00BDEC6-98E3-4E7E-A4DF-9A28C354AE2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F00BDEC6-98E3-4E7E-A4DF-9A28C354AE2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{C49AA5E3-AFF7-4714-9159-7FB3DEC64C91} = {2468C4D8-7769-44E5-AFEC-06ED6FC42C91}
 		{A884CC34-5ADA-485B-902F-75231199C6D9} = {C4DB72DF-5DAE-47A4-80A7-AB08918DF8A7}
 		{0C893DD8-B7EB-409F-A733-D858ACCE8767} = {2468C4D8-7769-44E5-AFEC-06ED6FC42C91}
+		{F00BDEC6-98E3-4E7E-A4DF-9A28C354AE2C} = {C4DB72DF-5DAE-47A4-80A7-AB08918DF8A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {593143E2-3196-4077-94A7-0281F9847503}
