@@ -48,33 +48,11 @@ namespace DeltaX.Services.Implementation
 
         public async Task<bool> SaveMoviesData(SaveMoviesData saveMoviesData, string fileName)
         {
-            var context = _unitOfWork.getDXContext();
-            Movie movie = new Movie
+            if (saveMoviesData.MovieID != -1)
             {
-                Name = saveMoviesData.MovieName,
-                Plot = saveMoviesData.Plot,
-                PosterFileName = fileName,
-                YearOfRelease = new DateTime(saveMoviesData.YearOfRelease, 1, 1),
-                Producer = saveMoviesData.ProducerID
-            };
-            var addedMovie = _movieRepo.InsertAndReturnEntity(movie);
-            context.Movies.Add(movie);
-            await _unitOfWork.Save();
-            bool save = false;
-            foreach (var item in saveMoviesData.Actors)
-            {
-                MovieActor movieActor = new MovieActor
-                {
-                    ActorID = item.ActorID,
-                    MovieID = addedMovie.Id
-                };
-                _unitOfWork.getDXContext().MovieActors.Add(movieActor);
-                save = true;
+                await _movieRepo.UpdateMovie(saveMoviesData, fileName);
             }
-            if (save)
-            {
-                await _unitOfWork.Save();
-            }
+            
             return false;
         }
     }

@@ -30,6 +30,7 @@ namespace DeltaX.Core.POCO
         public string Plot { get; set; }
         public virtual List<ActorPoco> Actors { get; set; }
         public IFormFile poster { get; set; }
+        public string actorsCSV { get; set; }
     }
 
     public class ActorPoco

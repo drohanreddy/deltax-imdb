@@ -7,6 +7,7 @@ export interface AllMoviesData {
     producerID:    number;
     producerName:  string;
     actors:        Actor[];
+    actorsCSV: string;
 }
 
 export interface Actor {

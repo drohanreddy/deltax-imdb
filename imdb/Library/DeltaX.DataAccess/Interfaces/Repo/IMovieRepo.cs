@@ -10,5 +10,6 @@ namespace DeltaX.DataAccess.Interfaces.Repo
     public interface IMovieRepo : IRepository<Movie, int>
     {
         Task<List<AllMoviesData>> GetAllMoviesData();
+        Task UpdateMovie(SaveMoviesData saveMoviesData, string fileName);
     }
 }

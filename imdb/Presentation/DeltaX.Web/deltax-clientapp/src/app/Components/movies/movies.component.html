@@ -44,11 +44,11 @@
                                         </div>
                                         <div class="md-form">
                                                 <angular2-multiselect [data]="actorsList" [(ngModel)]="selectedActors" formControlName="actors"></angular2-multiselect>
-                                                <span class="addActorLabel">Add Missing Actor <i class="fa fa-plus"></i></span>
+                                                <span class="addActorLabel" (click)="showActorForm()">Add Missing Actor <i class="fa fa-plus"></i></span>
                                         </div>  
                                         <div class="md-form">
                                                 <angular2-multiselect [data]="producerList" [(ngModel)]="selectedProducers" [settings]="producerDropDown" formControlName="producers"></angular2-multiselect>
-                                                <span class="addProducerLabel">Add Missing Producer <i class="fa fa-plus"></i></span>
+                                                <span class="addProducerLabel" (click)="showProducerForm()">Add Missing Producer <i class="fa fa-plus"></i></span>
                                         <span class="formError" *ngIf="(this.selectedProducers === null || this.selectedProducers.length === 0)">Choose a producer</span>
                                         </div>  
                                         <div class="md-form">

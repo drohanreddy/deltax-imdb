@@ -40,24 +40,30 @@ namespace DetlaX.API.Controllers
             if (!data.IsNullOrDefault())
             {
                 var file = data.poster;
+                string fileName = data.MoviePoster;
                 if (file != null && file.Length > 0)
                 {
-                    var fileName =  DateTime.Now.ToString("yyyyMMddHHmmssffff")+"-"+file.Name;
-                    var path1 = @"E:\StudyArea\deltax-imdb\imdb\Presentation\DeltaX.Web\dist\assets\images\movies\";
+                    var ext = Path.GetExtension(file.FileName);
+                    fileName =  DateTime.Now.ToString("yyyyMMddHHmmssffff")+"-"+file.Name+ ext;
+                    var path1 = @"E:\StudyArea\deltax-imdb\imdb\Presentation\DeltaX.Web\deltax-clientapp\src\assets\images\movies\";
                     var path2 = @"E:\StudyArea\deltax-imdb\imdb\Presentation\DeltaX.Web\dist\assets\images\movies\";
+                    
 
-                    var memory = new MemoryStream();
-                    await _movieService.SaveMoviesData(data, fileName);
-                    using (var stream = new FileStream(path1, FileMode.Create))
+                    // copying to dev path
+                    using (var stream = new FileStream(path1+fileName, FileMode.Create))
                     {
-                        await stream.CopyToAsync(memory);
+                        await file.CopyToAsync(stream);
+                        await stream.FlushAsync();
                     }
-                    using (var stream = new FileStream(path2, FileMode.Create))
+
+                    // copying to prod path
+                    using (var stream = new FileStream(path2 + fileName, FileMode.Create))
                     {
-                        await stream.CopyToAsync(memory);
+                        await file.CopyToAsync(stream);
+                        await stream.FlushAsync();
                     }
-                    memory.Position = 0;
                 }
+                await _movieService.SaveMoviesData(data, fileName);
             }
             return false;
         }
