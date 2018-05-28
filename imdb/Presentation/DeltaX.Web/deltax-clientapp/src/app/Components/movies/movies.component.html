@@ -1,4 +1,5 @@
 <div class="container cards-list">
+        <button (click)="addMovie()" type="button" class="btn btn-outline-primary" mdbWavesEffect>Add Movie</button>
         <div class="card" *ngFor="let movie of allMovies">
                 <img class="img-fluid cardimg" src="assets\images\movies\{{movie.moviePoster}}" alt="{{movie.movieName}}">
                 <div class="card-body">
@@ -24,14 +25,14 @@
         <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                         <div class="modal-header">
-                                <h4 class="modal-title w-100" id="myModalLabel">Edit</h4>
+                                <h4 class="modal-title w-100" id="myModalLabel">{{movieInEdit.movieID == -1? "Add": "Edit"}}</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
                                         <span aria-hidden="true">×</span>
                                 </button>
                         </div>
                         <div class="modal-body">
                                 <form [formGroup]="movieForm">
-                                        <p class="h5 text-center mb-4">Edit the movie {{movieInEdit.movieName}}</p>
+                                        <p class="h5 text-center mb-4">{{movieInEdit.movieID == -1? "Add New Movie": "Edit the movie "+ movieInEdit.movieName}}</p>
                                         <div class="md-form">
                                                 <input type="text" id="movieFormName" formControlName="movieName" class="form-control" mdbInputDirective [mdbValidate]="false" [ngClass]="(this.movieForm.controls['movieName'].touched && !this.movieForm.controls['movieName'].valid)?'invalid':''">
                                                 <label for="movieFormName">Movie Name</label>

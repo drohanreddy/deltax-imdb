@@ -5,6 +5,7 @@ CREATE PROCEDURE usp_UpdateMovieDetails (
 	,@Plot VARCHAR(5000)
 	,@PosterFileName VARCHAR(100)
 	,@ActorsCSV VARCHAR(200)
+	,@ProducerID INT
 	)
 AS
 BEGIN
@@ -16,6 +17,7 @@ BEGIN
 			,PosterFileName = @PosterFileName
 			,Plot = @Plot
 			,YearOfRelease = @YearOfRelease
+			,Producer = @ProducerID
 		WHERE Id = @MovieID
 
 		DELETE

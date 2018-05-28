@@ -12,7 +12,6 @@ import { ActorComponent } from './Components/actor/actor.component';
 import { MoviesComponent } from './Components/movies/movies.component';
 import { ProducerComponent } from './Components/producer/producer.component';
 import { MoviesService } from './Services/movies.component.service';
-import { ActorForm } from './Components/movies/child/actorform/actorform.component';
 
 
 const appRoutes: Routes = [
@@ -25,8 +24,7 @@ const appRoutes: Routes = [
     AppComponent,
     ActorComponent,
     MoviesComponent,
-    ProducerComponent,
-    ActorForm
+    ProducerComponent
   ],
   imports: [
     BrowserModule,

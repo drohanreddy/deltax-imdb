@@ -38,10 +38,26 @@ namespace DeltaX.DataAccess.Implementation.Repo
                 new SqlParameter{ParameterName = "@YearOfRelease"  , Value=saveMoviesData.YearOfRelease  },
                 new SqlParameter{ParameterName = "@Plot"           , Value=saveMoviesData.Plot  },
                 new SqlParameter{ParameterName = "@PosterFileName" , Value=fileName},
-                new SqlParameter{ParameterName = "@ActorsCSV"      , Value=saveMoviesData.actorsCSV}
+                new SqlParameter{ParameterName = "@ActorsCSV"      , Value=saveMoviesData.actorsCSV},
+                new SqlParameter{ParameterName = "@ProducerID"      , Value=saveMoviesData.ProducerID}
             };
             //
-            await _dXContext.Database.ExecuteSqlCommandAsync("usp_UpdateMovieDetails @MovieID,@MovieName,@YearOfRelease,@Plot,@PosterFileName,@ActorsCSV", sqlParameters);
+            await _dXContext.Database.ExecuteSqlCommandAsync("usp_UpdateMovieDetails @MovieID,@MovieName,@YearOfRelease,@Plot,@PosterFileName,@ActorsCSV,@ProducerID", sqlParameters);
+        }
+
+
+        public async Task addMovie(SaveMoviesData saveMoviesData, string fileName)
+        {
+            List<SqlParameter> sqlParameters = new List<SqlParameter> {
+                new SqlParameter{ParameterName = "@MovieName"      , Value=saveMoviesData.MovieName  },
+                new SqlParameter{ParameterName = "@YearOfRelease"  , Value=saveMoviesData.YearOfRelease  },
+                new SqlParameter{ParameterName = "@Plot"           , Value=saveMoviesData.Plot  },
+                new SqlParameter{ParameterName = "@PosterFileName" , Value=fileName},
+                new SqlParameter{ParameterName = "@ActorsCSV"      , Value=saveMoviesData.actorsCSV},
+                new SqlParameter{ParameterName = "@ProducerID"      , Value=saveMoviesData.ProducerID}
+            };
+            //
+            await _dXContext.Database.ExecuteSqlCommandAsync("usp_AddMovieDetails @MovieName,@YearOfRelease,@Plot,@PosterFileName,@ActorsCSV,@ProducerID", sqlParameters);
         }
     }
 }

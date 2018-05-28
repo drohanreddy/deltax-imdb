@@ -3,7 +3,6 @@ import { MoviesService } from '../../Services/movies.component.service';
 import { AllMoviesData, Actor, Producer } from '../../Common/models/AllMoviesData';
 import { Utilities } from '../../Common/utilities';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
-import {ActorForm} from './child/actorform/actorform.component';
 @Component({
   selector: 'app-movie',
   templateUrl: './movies.component.html',
@@ -79,6 +78,12 @@ export class MoviesComponent extends Utilities implements OnInit {
       producers: new FormControl([], Validators.required),
       image: new FormControl(null, null),
     });
+  }
+  addMovie(){
+    this.movieInEdit = this.defaultMovie;
+    this.selectedProducers = [];
+    this.selectedActors = [];
+    this.addEditModal.show();
   }
   editModal(id: number) {
     this.movieInEdit = this.allMovies.filter(j => {

@@ -52,6 +52,10 @@ namespace DeltaX.Services.Implementation
             {
                 await _movieRepo.UpdateMovie(saveMoviesData, fileName);
             }
+            else
+            {
+                await _movieRepo.addMovie(saveMoviesData, fileName);
+            }
             
             return false;
         }

@@ -11,5 +11,6 @@ namespace DeltaX.DataAccess.Interfaces.Repo
     {
         Task<List<AllMoviesData>> GetAllMoviesData();
         Task UpdateMovie(SaveMoviesData saveMoviesData, string fileName);
+        Task addMovie(SaveMoviesData saveMoviesData, string fileName);
     }
 }
