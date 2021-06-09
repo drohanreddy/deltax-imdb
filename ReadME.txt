@@ -1,3 +1,6 @@
+An IMDB clone written in .NET Core amnd Angular.
+
+
 Tech Stack
 
 - .Net Core WEB API
@@ -8,8 +11,5 @@ Tech Stack
 
 
 - Movie Data Base where one can add or edit movies.
-
-
-WIP task
 
 
